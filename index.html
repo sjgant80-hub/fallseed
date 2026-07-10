@@ -138,8 +138,7 @@ const TOOL_LIBRARY = [
   { id:'report',      role:'REPORT',     nm:'Report generator',      pu:'Weekly / monthly summary. Charts, KPIs, exported PDF.' },
   { id:'ledger',      role:'FINANCE',    nm:'Simple ledger',         pu:'Double-entry income/outgoings. TB + P&L. IndexedDB persisted.' },
   { id:'inspection',  role:'FIELD',      nm:'Inspection checklist',  pu:'Field / site inspection form. Photos, geotag, signature capture.' },
-  { id:'risk',        role:'RISK',       nm:'Risk register',         pu:'RAG-scored risks with mitigations and owners.' },
-];
+  { id:'risk',        role:'RISK',       nm:'Risk register',         pu:'RAG-scored risks with mitigations and owners.' }];
 
 // ── Vertical presets (any of the 10 estate verticals could be built from these) ─
 const VERTICAL_PRESETS = {
@@ -154,8 +153,7 @@ const VERTICAL_PRESETS = {
   estate:      { display:'FallSeed for Estate agents',  tag:'sovereign single-file PWA for UK estate agents',         colour:'#5a1a3a', tools:['intake','inspection','followup','booking'] },
   recruit:     { display:'FallSeed for Recruitment',    tag:'sovereign single-file PWA for UK recruitment agencies',   colour:'#3a1a5c', tools:['intake','crm','followup','contract'] },
   dentist:     { display:'FallSeed for Dentists',       tag:'sovereign single-file PWA for UK dental practices',      colour:'#0e6ba8', tools:['booking','treatment','followup','compliance'] },
-  vet_us:      { display:'FallSeed for US Vets',        tag:'sovereign single-file PWA for US veterinary practices',  colour:'#8b1a1a', tools:['intake','treatment','invoice','compliance'] },
-};
+  vet_us:      { display:'FallSeed for US Vets',        tag:'sovereign single-file PWA for US veterinary practices',  colour:'#8b1a1a', tools:['intake','treatment','invoice','compliance'] }};
 
 // ── Cascade providers list · matches fall-kit ─────────────────
 const CASCADE_PROVIDERS = [
@@ -163,8 +161,7 @@ const CASCADE_PROVIDERS = [
   { id:'ollama',    label:'Ollama (localhost)',  tier:'T2', desc:'Any local model · OLLAMA_ORIGINS=* required · free' },
   { id:'anthropic', label:'Anthropic Claude',    tier:'T3', desc:'Sonnet/Opus/Haiku · BYOK · pay-per-use' },
   { id:'openai',    label:'OpenAI',              tier:'T3', desc:'GPT-4o / mini / o1 · BYOK · pay-per-use' },
-  { id:'google',    label:'Google Gemini',       tier:'T3', desc:'2.5 Pro / Flash · BYOK · free tier available' },
-];
+  { id:'google',    label:'Google Gemini',       tier:'T3', desc:'2.5 Pro / Flash · BYOK · free tier available' }];
 
 // ── State ──────────────────────────────────────────────────────
 const state = {
@@ -177,8 +174,7 @@ const state = {
   tools: ['booking','treatment','followup','compliance'],
   defaultTier: 'T0',
   providers: ['webllm','anthropic'],
-  generatedHtml: null,
-};
+  generatedHtml: null};
 
 // ── DOM helpers ────────────────────────────────────────────────
 const $ = (s, r) => (r || document).querySelector(s);
@@ -220,8 +216,7 @@ const STEPS = [
   { n:3, t:'Cascade' },
   { n:4, t:'Preview' },
   { n:5, t:'Download' },
-  { n:6, t:'Push' },
-];
+  { n:6, t:'Push' }];
 
 function renderStepper(){
   $('#stepper').innerHTML = STEPS.map(s=>`
@@ -561,8 +556,7 @@ function buildSeedHtml(){
     prime,
     seal: '◊·κ=1',
     licence: 'MIT',
-    generated: new Date().toISOString(),
-  };
+    generated: new Date().toISOString()};
 
   const toolsJson = JSON.stringify(tools).replace(/</g,'\\u003c');
   const provJson = JSON.stringify(provenance, null, 2).replace(/</g,'\\u003c');
@@ -673,8 +667,7 @@ const state = {
   tab: TOOLS[0]?.id || 'home',
   records: {},
   apiKey: '',
-  provider: PROVIDERS[0] || '',
-};
+  provider: PROVIDERS[0] || ''};
 
 // ── DB (IndexedDB) ──────────────────────────────────────────
 let db;
@@ -830,8 +823,7 @@ function renderToolBody(tool){
     report:      { fields:[['period','Period'],['highlights','Highlights']], btn:'Save snapshot' },
     ledger:      { fields:[['date','Date'],['acct','Account'],['debit','Debit £'],['credit','Credit £']], btn:'Post entry' },
     inspection:  { fields:[['site','Site'],['inspector','Inspector'],['result','Result / notes']], btn:'File inspection' },
-    risk:        { fields:[['risk','Risk'],['rag','R/A/G'],['owner','Owner'],['mitigation','Mitigation']], btn:'Log risk' },
-  };
+    risk:        { fields:[['risk','Risk'],['rag','R/A/G'],['owner','Owner'],['mitigation','Mitigation']], btn:'Log risk' }};
   const s = specs[tool.id] || { fields:[['title','Title'],['body','Detail']], btn:'Save' };
   const inputs = s.fields.map(([k,l]) => \`<div class="field"><label>\${esc(l)}</label><input data-k="\${esc(k)}" placeholder="\${esc(l)}"></div>\`).join('');
   const aiBtn = s.extra ? \`<button class="btn sm" onclick="aiAssist('\${tool.id}','\${s.extra}')">✨ AI assist (tier \${TIER})</button>\` : '';
