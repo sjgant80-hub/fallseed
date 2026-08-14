@@ -917,6 +917,17 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catc
 })();
 </` + `script>
 
+
+</body>
+</html>`;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════════════════════════════
+document.querySelectorAll('nav.tabs button').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+render();
+</script>
 
 <!-- ═══════════════════════ AUTOPILOT · fall-autopilot-kit ═══════════════════════ -->
 <script type="module">
@@ -937,15 +948,6 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catc
 
 <script src="https://sjgant80-hub.github.io/fall-kit/shim.js" defer></script>
 <script src="https://sjgant80-hub.github.io/fall-kit/shim.js" defer></script>
-</body>
-</html>`;
-}
 
-// ═══════════════════════════════════════════════════════════════
-// BOOT
-// ═══════════════════════════════════════════════════════════════
-document.querySelectorAll('nav.tabs button').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
-render();
-</script>
 </body>
 </html>
