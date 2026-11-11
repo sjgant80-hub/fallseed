@@ -83,4 +83,4 @@ The forking economy: more descendants = more root value.
 
 MIT. Use it, fork it, mint it. Provenance stays honest.
 
-Root: fallseed@v1.0.0 · ◊·κ=1 · prime 2 · Ring 0
+Root: fallseed@v1.0.0 · Ring 0
